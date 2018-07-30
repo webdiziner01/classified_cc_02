@@ -16,7 +16,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        session()->forget('area');
+
 
         $areas = Area::get()->toTree();
 

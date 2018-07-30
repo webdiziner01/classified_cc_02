@@ -15,6 +15,8 @@ class AreaController extends Controller
 
 
         //return to category index
-        return redirect()->back();
+       // return redirect()->back();
+
+        return redirect()->route('category.index',[$area]);
 }
 }
