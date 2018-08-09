@@ -2,11 +2,12 @@
 
 namespace App;
 
+use App\Traits\Eloquent\OrderableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 class Listing extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, OrderableTrait;
 
 
 
