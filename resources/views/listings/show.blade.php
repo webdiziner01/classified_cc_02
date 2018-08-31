@@ -12,11 +12,23 @@
                     <div class="card-body">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">Active</a>
+                                <a class="nav-link active" href="#">Email to a friend</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">Active</a>
-                            </li>
+                            @if(!$listing->favouritedBy(Auth::user()))
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#" onclick="event.preventDefault(); document.getElementById('listings-favourite-form').submit()">Add to favourites</a>
+
+                                    <form action="{{ route('listings.favourites.store',[$area,$listing]) }}" method="post" id="listings-favourite-form">
+
+                                        {{csrf_field()}}
+
+                                    </form>
+
+
+                                </li>
+                            @endif
+
+
                         </ul>
 
                     </div>
