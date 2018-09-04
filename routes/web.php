@@ -38,6 +38,8 @@ Route::group(['prefix' => '{area}'],function (){
             ->name('listings.favourites.index');
         Route::post('/{listing}/favourites', 'ListingFavouriteController@store')
             ->name('listings.favourites.store');
+        Route::delete('{listing}/favourites', 'ListingFavouriteController@destroy')
+            ->name('listings.favourites.destroy');
     });
 
 

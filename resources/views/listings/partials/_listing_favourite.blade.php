@@ -8,8 +8,14 @@
             </li>
 
             <li class="list-inline-item">
-                <a href="#">Delete</a>
+                <a href="#" onclick="event.preventDefault(); document.getElementById('listings-favourite-destroy-{{$listing->id}}').submit();">Delete</a>
             </li>
+
+            <form action="{{route('listings.favourites.destroy',[$area, $listing])}}" method="post"
+            id="listings-favourite-destroy-{{ $listing->id }}">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+            </form>
 
         </ul>
     @endslot
