@@ -32,7 +32,8 @@ class User extends Authenticatable
     public function favouriteListings(){
 
         return $this->morphedByMany(Listing::class,'favouriteable')
-            ->withPivot(['created_at']);
+            ->withPivot(['created_at'])
+            ->orderByPivot('created_at','desc');
             //->orderBy('pivot_created_at','desc');
     }
 
