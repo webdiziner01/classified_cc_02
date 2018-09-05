@@ -29,7 +29,7 @@ class ListingFavouriteController extends Controller
     public function store(Request $request, Area $area, Listing $listing){
         $request->user()->favouriteListings()->syncWithoutDetaching([$listing->id]);
 
-        return back();
+        return back()->withSuccess('Listing Added to favourites');
     }
 
 
@@ -37,7 +37,7 @@ class ListingFavouriteController extends Controller
         $request->user()->favouriteListings()->detach($listing);
 
 
-        return back();
+        return back()->withSuccess('Listing remove from favourites');;
     }
 
 

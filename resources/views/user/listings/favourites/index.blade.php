@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+
 
 
         @if($listings->count())
@@ -17,5 +17,5 @@
         @endif
 
 
-    </div>
+
 @endsection
