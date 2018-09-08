@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Listing;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\{Area,Category,Listing};
+use App\{
+    Area, Category, Jobs\UserViewedListing, Listing
+};
 class ListingController extends Controller
 {
     public function index(Area $area,Category $category){
@@ -26,6 +28,12 @@ class ListingController extends Controller
         if(!$listing->live()){
             return abort(404);
         }
+
+        if($request->user()){
+            $this->dispatch(new UserViewedListing($request->user(),$listing));
+        }
+
+
         return view('listings.show', compact('listing'));
 
     }

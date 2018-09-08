@@ -18,6 +18,17 @@ class HomeController extends Controller
     {
 
 
+        /*
+         * Testing
+         * */
+
+        //dd(auth()->user()->viewedListings());
+
+
+        /*
+         * Testing
+         * */
+
 
         $areas = Area::get()->toTree();
 
