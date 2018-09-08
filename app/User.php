@@ -38,6 +38,13 @@ class User extends Authenticatable
     }
 
 
+    public function viewedListings(){
+        return $this->belongsToMany(Listing::class,'users_listing_viewes')->withTimestamps();
+    }
+
+
+
+
 
 
 
